@@ -1,0 +1,97 @@
+Part 1
+
+[스프링 개발 환경 구축]
+
+	01 개발을 위한 준비
+	--------------------------------
+	
+	1.1 개발 환경 설정
+	1.2 스프링 프로젝트 생성
+	1.3 Tomcat을 이용한 프로젝트 실행 확인
+	1.4 Lombok라이브러리 설치
+	1.5 Java Configuration을 하는 경우
+
+	02 스프링의 특징과 의존성 주입
+	--------------------------------
+	2.1 스프링 프레임워크의 간략한 역사	
+	2.2 의존성 주입 테스트
+	
+	2.3 스프링이 동작하면서 생기는 일
+		작성한 2개의 클래스와 root-context.xml의 동작
+		
+		[스프링프레임워크 동작]
+		→ Context 생성 : 스프링이 사용하는 메모리 영역 생성
+		→ ApplicationContext 객체 생성
+		→ 스프링은 객체를 생성하고 관리해야 하므로 이에 대한 설정 정보가 필요
+		→ root-context.xml에 설정되어 있는 <context:component-scan>태그의 내용을 통해
+		  org.zerock.sample 패키지를 스캔
+		→ 해당 패키지에 있는 클래스들 중에서 스프링이 사용하는 
+		  @Component라는 어노테이션이 존재하는 클래스의 인스턴스를 생성
+		→ Restaurant 객체는 Chef 객체가 필요하다는 어노테이션(@Autowired)설정이 있으므로
+		  스프링은 Chef 객체의 레퍼런스를 Restaurant 객체에 주입
+		
+		2.3.1 테스트 코드를 통한 확인
+			src/text/java 폴더 내
+			org.zerock.sample.SampleTest 클래스 생성 
+			spring-test 모듈을 이용해서 간단하게 스프링을 가동시키고 2.3 과정 실행
+			
+			Run As > Junit Test 실행
+	
+			INFO : org.zerock.sample.SampleTest - Restaurant(chef=Chef())
+			INFO : org.zerock.sample.SampleTest - ------------------------------
+			INFO : org.zerock.sample.SampleTest - Chef()
+				
+			[실행된 결과에서 주목해야 하는 부분]
+			→ new Restaurant()와 같이 클래스에서 객체를 생성한 적이 없는데도
+			  객체가 만들어졌다는 점
+			  : 스프링은 관리가 필요한 객체(Bean)를 어노테이션 등을 이용해서 객체를 생성하고 관리
+			→ @Data Lombok를 이용 여러 메서드가 만들어진 점
+			→ Restaurant 객체의 Chef 인스턴스 변수(멤버변수)에 Chef타입의 객체가 주입되었다는 점
+	
+		2.3.2 코드에 사용된 어노테이션
+			Lombok관련 어노테이션 : @Setter, @Data, @Log4j
+			Spring관련 어노테이션 : @Autowired, @Component
+			테스트관련 어노테이션 : @RunWith, @ContextConfiguration, @Test
+	
+	
+	
+	
+	
+	2.4 스프링 4.3이후 단일 생성자의 묵시적 자동주입
+	
+	03 스프링과 Oracle Database 연동
+	--------------------------------
+	3.1 오라클 설치
+	3.2 Sql Developer 설치
+	3.3 프로젝트의 JDBC연결
+	3.4 커넥션 풀 설정
+
+	04 MyBatis와 스프링 연동
+	--------------------------------
+	4.1 MyBatis
+	4.2 스프링과의 연동 처리
+	4.3 log4jdbc-log4j2 설정
+	
+
+
+
+
+
+Part 2
+[스프링 MVC 설정]
+
+Part 3
+[기본적인 웹 게시물 관리]
+
+Part 4
+[REST 방식과 Ajax를 이용하는 댓글 처리]
+
+Part 5
+[AOP와 트랜잭션]
+
+Part 6
+[파일 업로드 처리]
+
+Part 7
+[Spring Web Security를 이용한 로그인 처리]
+

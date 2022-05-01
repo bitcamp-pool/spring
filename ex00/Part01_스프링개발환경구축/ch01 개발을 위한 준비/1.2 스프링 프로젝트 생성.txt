@@ -1,0 +1,99 @@
+Part 1
+
+[스프링 개발 환경 구축]
+
+	01 개발을 위한 준비
+	--------------------------------
+	
+	1.1 개발 환경 설정
+	1.2 스프링 프로젝트 생성
+	
+		1.2.1 Maven을 사용하는 스프링 프로젝트 생성
+			Perspective > Spring 선택
+			File > Spring Legacy Project
+		
+			Prject name : ex00
+			Templates	: Spring MVC Project
+			top-level package :  org.bitcamp.controller
+		
+			* 오류시 .m2/repository 폴더 내용 삭제 후 이클립스 재시작
+			
+		1.2.2 스프링 버전 변경
+			src/main/java : 실행 코드 작성
+			src/main/resources : 실행할 때 참고하는 파일(주로 설정 파일)
+	    	src/test/java : 테스트 코드 작성
+			src/test/resources : 테스트 관련 설정 파일
+	
+			src/main/webapp/WEB-INF
+			/spring/appServlet/servlet-context.xml : 웹과 관련된 스프링 설정
+			   	   /root-context.xml : 스프링 설정 파일
+			/views/템플릿 프로젝트의 jsp 파일 경로
+			/web.xml : Tomcat의 웹 설정 파일
+												 
+			pom.xml : Maven이 사용하는 설정파일
+		
+			Maven Repositories 설정
+			Window>Show view>other>Maven>Repositories>Global Repositories>Rebuild index
+			
+			pom.xml>Dependencies>
+			<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+		
+		1.2.3 Java version 변경	
+			<artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+				</configuration>
+				
+		프로젝트 선택 > Maven > Update Project 실행		
+				
+			
+							
+	1.3 Tomcat을 이용한 프로젝트 실행 확인
+	1.4 Lombok라이브러리 설치
+	1.5 Java Configuration을 하는 경우
+
+	02 스프링의 특징과 의존성 주입
+	--------------------------------
+	2.1 스프링 프레임워크의 간략한 역사
+	2.2 의존성 주입 테스트
+	2.3 스프링이 동작하면서 생기는 일
+	2.4 스프링 4.3이후 단일 생성자의 묵시적 자동주입
+	
+	03 스프링과 Oracle Database 연동
+	--------------------------------
+	3.1 오라클 설치
+	3.2 Sql Developer 설치
+	3.3 프로젝트의 JDBC연결
+	3.4 커넥션 풀 설정
+
+	04 MyBatis와 스프링 연동
+	--------------------------------
+	4.1 MyBatis
+	4.2 스프링과의 연동 처리
+	4.3 log4jdbc-log4j2 설정
+	
+
+
+
+
+
+Part 2
+[스프링 MVC 설정]
+
+Part 3
+[기본적인 웹 게시물 관리]
+
+Part 4
+[REST 방식과 Ajax를 이용하는 댓글 처리]
+
+Part 5
+[AOP와 트랜잭션]
+
+Part 6
+[파일 업로드 처리]
+
+Part 7
+[Spring Web Security를 이용한 로그인 처리]
+
